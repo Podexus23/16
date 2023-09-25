@@ -1,9 +1,8 @@
 const express = require('express');
 const fs = require('fs');
-const url = require('url');
 
 const app = express();
-
+app.use(express.json());
 // app.get('/', (req, res) => {
 //   res
 //     .status(200)
@@ -24,6 +23,43 @@ app.get('/api/v1/tours', (req, res) => {
     results: toursData.length,
     data: { tours: toursData },
   });
+});
+
+app.get('/api/v1/tours/:id', (req, res) => {
+  const id = +req.params.id;
+  const tour = toursData.find((el) => el.id === id);
+
+  // if (id > toursData.length) {
+  if (!tour) {
+    return res.status(400).json({ status: 'fail', message: 'invalid ID' });
+  }
+
+  console.log(req.params);
+  res.status(200).json({
+    status: 'success',
+    data: { tour },
+  });
+});
+
+app.post('/api/v1/tours', (req, res) => {
+  const newId = toursData.at(-1).id + 1;
+  const newTour = Object.assign({ id: newId }, req.body);
+
+  toursData.push(newTour);
+
+  fs.writeFile(
+    `${__dirname}\\dev-data\\data\\tours-simple.json`,
+    JSON.stringify(toursData),
+    (err) => {
+      if (err) throw Error(err.message + '💥');
+      res.status(201).json({
+        status: 'success',
+        data: {
+          tour: newTour,
+        },
+      });
+    }
+  );
 });
 
 const port = 3000;
