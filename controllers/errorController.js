@@ -39,14 +39,12 @@ const sendErrorProd = (err, res) => {
 module.exports = (err, req, res, next) => {
   err.statusCode = err.statusCode || 500;
   err.status = err.status || 'error';
-  console.log(err.name, 'eto err');
 
   if (process.env.NODE_ENV === 'development') {
     sendErrorDev(err, res);
   } else if (process.env.NODE_ENV === 'production') {
-    let error = { ...err };
-    // error.name = err.name;
-    console.log(error, 'eto error');
+    // it works differently from Jonas code (don't know why)
+    let error = JSON.parse(JSON.stringify(err));
     if (error.name === 'CastError') error = handleCastErrorDB(error);
 
     sendErrorProd(error, res);
