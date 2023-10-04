@@ -22,8 +22,8 @@
   "dependencies": {
     "cross-env": "^7.0.3",
     "dotenv": "^16.3.1",
-    "express": "^4.18.2",
-    "mongoose": "^5.13.20",
+    "express": "^4.16.4",
+    "mongoose": "^5.5.2",
     "morgan": "^1.10.0",
     "slugify": "^1.6.6",
     "validator": "^13.11.0"
@@ -40,5 +40,8 @@
     "ndb": "^1.1.5",
     "nodemon": "^3.0.1",
     "prettier": "^3.0.3"
+  },
+  "engines": {
+    "node": ">=10.0.0"
   }
 }
