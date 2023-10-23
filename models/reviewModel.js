@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+// spend all day on AWS study
 const reviewSchema = new mongoose.Schema(
   {
     review: {
