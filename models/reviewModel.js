@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+//last aws fundamentals day
 const reviewSchema = new mongoose.Schema(
   {
     review: {
