@@ -2,12 +2,12 @@
   "name": "16-natours-api",
   "version": "1.0.0",
   "description": "learning node, express and mongo db",
-  "main": "./public/js/bundle.mjs",
+  "main": "app.js",
   "scripts": {
     "start:dev": "nodemon server.js",
     "start:prod": "cross-env NODE_ENV=production nodemon server.js",
     "debug": "ndb server.js",
-    "watch:js": "parcel watch ./public/js/index.mjs --dist-dir ./pubic/js",
+    "watch:js": "parcel watch ./public/js/index.mjs --out-dir ./public/js --out-file bundle.mjs",
     "build:js": "parcel watch ./public/js/index.js --dist-dir ./pubic/js --out-file bundle.js"
   },
   "repository": {
@@ -52,7 +52,7 @@
     "eslint-plugin-react": "^7.33.2",
     "ndb": "^1.1.5",
     "nodemon": "^3.0.1",
-    "parcel": "^2.10.2",
+    "parcel-bundler": "^1.12.5",
     "prettier": "^3.0.3"
   },
   "engines": {

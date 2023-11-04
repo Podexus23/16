@@ -2,8 +2,7 @@
 // import '@babel/polyfill';
 // import axios from 'axios';
 
-import { logout } from '../../controllers/authController';
-import { login } from './login.mjs';
+import { login, logout } from './login.mjs';
 import { displayMap } from './mapbox.mjs';
 
 // DOM Elements

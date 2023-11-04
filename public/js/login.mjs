@@ -1,6 +1,7 @@
 /* eslint-disable */
 import { showAlerts } from './alerts.mjs';
-
+// import axios from 'axios';
+console.log(showAlerts);
 export async function login(email, password) {
   try {
     const res = await axios({
@@ -24,7 +25,7 @@ export async function login(email, password) {
   }
 }
 
-export const logout = async () => {
+export async function logout() {
   try {
     const res = await axios({
       method: 'GET',
@@ -36,4 +37,4 @@ export const logout = async () => {
   } catch (err) {
     showAlerts('error', 'Error logging out! Try again.');
   }
-};
+}
