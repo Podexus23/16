@@ -2,11 +2,13 @@
   "name": "16-natours-api",
   "version": "1.0.0",
   "description": "learning node, express and mongo db",
-  "main": "app.js",
+  "main": "./public/js/bundle.mjs",
   "scripts": {
     "start:dev": "nodemon server.js",
     "start:prod": "cross-env NODE_ENV=production nodemon server.js",
-    "debug": "ndb server.js"
+    "debug": "ndb server.js",
+    "watch:js": "parcel watch ./public/js/index.mjs --dist-dir ./pubic/js",
+    "build:js": "parcel watch ./public/js/index.js --dist-dir ./pubic/js --out-file bundle.js"
   },
   "repository": {
     "type": "git",
@@ -19,6 +21,8 @@
   },
   "homepage": "https://github.com/Podexus23/16-natours-api#readme",
   "dependencies": {
+    "@babel/polyfill": "^7.12.1",
+    "axios": "^1.6.0",
     "bcryptjs": "^2.4.3",
     "cookie-parser": "^1.4.6",
     "cross-env": "^7.0.3",
