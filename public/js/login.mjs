@@ -1,7 +1,7 @@
 /* eslint-disable */
 import { showAlerts } from './alerts.mjs';
 // import axios from 'axios';
-console.log(showAlerts);
+
 export async function login(email, password) {
   try {
     const res = await axios({
@@ -19,9 +19,8 @@ export async function login(email, password) {
         location.assign('/');
       }, 1500);
     }
-    console.log(res);
   } catch (err) {
-    showAlerts('error', err.response.data);
+    showAlerts('error', err.response.data.message);
   }
 }
 
@@ -33,6 +32,7 @@ export async function logout() {
     });
     if (res.data.status === 'success') {
       location.reload(true);
+      location.assign('/');
     }
   } catch (err) {
     showAlerts('error', 'Error logging out! Try again.');
