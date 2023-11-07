@@ -69,10 +69,10 @@ if (userPasswordForm) {
   });
 }
 
-if (bookBtn) {
-  bookBtn.addEventListener('click', (e) => {
-    e.target.textContent = 'Processing...';
-    const { tourId } = e.target.dataset;
-    bookTour(tourId);
-  });
-}
+// if (bookBtn) {
+//   bookBtn.addEventListener('click', (e) => {
+//     e.target.textContent = 'Processing...';
+//     const { tourId } = e.target.dataset;
+//     bookTour(tourId);
+//   });
+// }
