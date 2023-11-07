@@ -5,6 +5,7 @@ import { updateSettings } from './updateSettings.mjs';
 
 import { login, logout } from './login.mjs';
 import { displayMap } from './mapbox.mjs';
+import { bookTour } from './stripe.mjs';
 
 // DOM Elements
 const mapBox = document.getElementById('map');
@@ -12,6 +13,7 @@ const loginForm = document.querySelector('.form--login');
 const logoutBtn = document.querySelector('.nav__el--logout');
 const userDataForm = document.querySelector('.form-user-data');
 const userPasswordForm = document.querySelector('.form-user-password');
+const bookBtn = document.getElementById('book-tour');
 
 // Values
 
@@ -64,5 +66,13 @@ if (userPasswordForm) {
     document.getElementById('password-current').value = '';
     document.getElementById('password').value = '';
     document.getElementById('password-confirm').value = '';
+  });
+}
+
+if (bookBtn) {
+  bookBtn.addEventListener('click', (e) => {
+    e.target.textContent = 'Processing...';
+    const { tourId } = e.target.dataset;
+    bookTour(tourId);
   });
 }
