@@ -5,7 +5,7 @@ import { updateSettings } from './updateSettings.mjs';
 
 import { login, logout } from './login.mjs';
 import { displayMap } from './mapbox.mjs';
-import { bookTour } from './stripe.mjs';
+// import { bookTour } from './stripe.mjs';
 
 // DOM Elements
 const mapBox = document.getElementById('map');

@@ -1,8 +1,5 @@
 /* eslint-disable */
 
-console.log('hello from the client side');
-// console.log(locations);
-
 export function displayMap(locations) {
   mapboxgl.accessToken = `pk.eyJ1IjoicG9kZXh1czIzIiwiYSI6ImNsb2lycDgzbzF1N3kycXA5NGM0OWU3NDgifQ.zr564U0ctKS60QqXa30fIg`;
 

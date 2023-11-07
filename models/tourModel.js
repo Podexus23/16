@@ -138,20 +138,7 @@ tourSchema.pre('save', function (next) {
   next();
 });
 
-// tourSchema.pre('save', async function (next) {
-//   const guidesPromises = this.guides.map(async (id) => await User.findById(id));
-//   this.guides = await Promise.all(guidesPromises);
-
-//   next();
-// });
-
-// tourSchema.post('save', function (doc, next) {
-//   console.log(doc);
-//   next();
-// });
-
 //query middleware
-// tourSchema.pre('find', function (next) {
 tourSchema.pre(/^find/, function (next) {
   this.find({ secretTour: { $ne: true } });
 
@@ -167,15 +154,8 @@ tourSchema.pre(/^find/, function (next) {
   next();
 });
 
-tourSchema.post(/^find/, function (docs, next) {
-  console.log(`Query took ${Date.now() - this.start} ms`);
-  next();
-});
-
-// Aggregation middleware
-// tourSchema.pre('aggregate', function (next) {
-//   // console.log(this.pipeline());
-//   this.pipeline().unshift({ $match: { secretTour: { $ne: true } } });
+// tourSchema.post(/^find/, function (docs, next) {
+//   console.log(`Query took ${Date.now() - this.start} ms`);
 //   next();
 // });
 

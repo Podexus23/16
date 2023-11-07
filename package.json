@@ -8,7 +8,7 @@
     "start:prod": "cross-env NODE_ENV=production nodemon server.js",
     "debug": "ndb server.js",
     "watch:js": "parcel watch ./public/js/index.mjs --out-dir ./public/js --out-file bundle.mjs",
-    "build:js": "parcel watch ./public/js/index.js --dist-dir ./pubic/js --out-file bundle.js"
+    "build:js": "parcel build ./public/js/index.mjs --out-dir ./public/js --out-file bundle.mjs"
   },
   "repository": {
     "type": "git",
@@ -24,6 +24,7 @@
     "@babel/polyfill": "^7.12.1",
     "axios": "^1.6.0",
     "bcryptjs": "^2.4.3",
+    "compression": "^1.7.4",
     "cookie-parser": "^1.4.6",
     "cross-env": "^7.0.3",
     "dotenv": "^16.3.1",
